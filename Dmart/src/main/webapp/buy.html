@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Items</title>
+    <link rel="stylesheet" href="css/buy.css">
+    <script>
+        function fetchItemDetails() {
+            var itemCode = document.getElementById("itemCode").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "FetchItemDetailsServlet?itemCode=" + itemCode, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        document.getElementById("itemName").value = response.itemName;
+                        document.getElementById("itemPrice").value = response.itemPrice;
+                    } else {
+                        console.error("Error fetching item details");
+                    }
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Buy Items</h1>
+        <form id="buyForm" action="GenerateBillServlet" method="post">
+            <input type="hidden" name="action" value="generateBill">
+            Customer Name: <input type="text" name="customerName" required><br>
+            Item Code: <input type="number" id="itemCode" name="itemCode" required onchange="fetchItemDetails()"><br>
+            <!-- Item Name: <input type="text" id="itemName" name="itemName" readonly><br>
+            Item Price: <input type="number" id="itemPrice" name="itemPrice" step="0.01" readonly><br>
+            Total Price: <input type="number" name="totalPrice" step="0.01" required><br> -->
+            <input type="submit" value="Buy Items">
+        </form>
+        <input type="button" value="Back" class="back-button" onclick="window.location.href='front.html'">
+    </div>
+</body>
+</html>

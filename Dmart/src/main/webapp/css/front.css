@@ -1,0 +1,37 @@
+
+
+body {
+    background-image: url('C:\Users\DELL\Desktop\dmart\dmartLogo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Adding a slight background color for readability */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}

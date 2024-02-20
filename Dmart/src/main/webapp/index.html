@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Items</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .back-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Items</h1>
+        <form action="DmartServlet" method="post">
+       <!--         <input type="hidden" name="action" value="addItem">
+          Admin ID: <input type="text" name="adminId" required><br> -->
+          Item Code: <input type="number" name="itemCode" required><br>
+            Item Name: <input type="text" name="itemName" required><br>
+            Item Price: <input type="number" name="itemPrice" step="0.01" required><br>
+            Item Quantity: <input type="number" name="itemQuantity" required><br>
+            <input type="button" value="Back" class="back-button" onclick="window.location.href='front.html'">
+            <input type="submit" value="Add Item">
+        </form>
+      
+   
+    </div>
+</body>
+</html>
