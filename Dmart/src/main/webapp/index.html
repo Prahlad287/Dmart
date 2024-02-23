@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Items</title>
+    <style>
+        body {
+            background-image: url("img/Dmart.jpg");          
+            background-size: cover;          
+            margin: 0; 
+           padding: 0; 
+        }
+    </style>
     <link rel="stylesheet" href="css/styles.css">
     <style>
         .back-button {
@@ -27,12 +35,13 @@
         <form action="DmartServlet" method="post">
        <!--         <input type="hidden" name="action" value="addItem">
           Admin ID: <input type="text" name="adminId" required><br> -->
-          Item Code: <input type="number" name="itemCode" required><br>
+          Item Code: <input type="number" min="1" name="itemCode" required><br>
             Item Name: <input type="text" name="itemName" required><br>
-            Item Price: <input type="number" name="itemPrice" step="0.01" required><br>
-            Item Quantity: <input type="number" name="itemQuantity" required><br>
-            <input type="button" value="Back" class="back-button" onclick="window.location.href='front.html'">
+            Item Price: <input type="number" min="0" name="itemPrice" step="0.01" required><br>
+            Item Quantity: <input type="number" min="1" name="itemQuantity" required><br>
+          
             <input type="submit" value="Add Item">
+              <input type="button" value="Back" class="back-button" onclick="window.location.href='front.html'">
         </form>
       
    

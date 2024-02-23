@@ -1,17 +1,64 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DMart</title>
-    <link rel="stylesheet" href="css/front.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DMart</title>
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 50%;
+}
+
+body {
+	background-image: url('img/Dmart.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Arial, sans-serif;
+}
+
+.container {
+	text-align: center;
+	color: rgb(128, 0, 64);
+}
+
+.btn {
+	display: inline-block;
+	width: 200px;
+	margin: 10px;
+	padding: 10px;
+	background-color: #333;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.btn:hover {
+	background-color: #555;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Welcome to DMart</h1>
-        <a href="index.html" class="btn">Add Items</a>
-        <a href="BuyServlet" class="btn">Sell Items</a>
-        <a href="CheckAvailabilityServlet" class="btn">Check Available Items List</a>
-    </div>
+
+	<div class="container">
+
+		<h1>
+			<b>Welcome to DMart</b>
+		</h1>
+			<a href="Welcome.html" class="btn">Home</a> 
+			<a href="index.html"class="btn">Add Items</a> 
+			<a href="buy.html" class="btn">Sell Items</a> 
+			<a href="CheckAvailabilityServlet" class="btn">Check Available Items List</a>
+
+	</div>
+
 </body>
+
 </html>

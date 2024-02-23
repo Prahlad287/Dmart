@@ -22,26 +22,37 @@ public class DmartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Background Image Servlet</title>");
+        out.println("<style>");
+        out.println("body {");
+        out.println("    background-image: url('img/Dmart.jpg');");
+        out.println("    background-size: cover;");
+        out.println("    background-repeat: no-repeat;");
+        out.println("}");
+        out.println("</style>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("</body>");
+        out.println("</html>");
         // Retrieving form parameters
         int itemCode = Integer.parseInt(request.getParameter("itemCode"));
         String itemName = request.getParameter("itemName");
         double itemPrice = Double.parseDouble(request.getParameter("itemPrice"));
         int itemQuantity = Integer.parseInt(request.getParameter("itemQuantity"));
         
-        // You can perform further operations with the retrieved data, such as inserting into a database
-        // For now, let's just print the retrieved data
-//        out.println("<h2>Item Details:</h2>");
-//        out.println("<p>Item Code: " + itemCode + "</p>");
-//        out.println("<p>Item Name: " + itemName + "</p>");
-//        out.println("<p>Item Price: " + itemPrice + "</p>");
-//        out.println("<p>Item Quantity: " + itemQuantity + "</p>");
+     
         ItemList list=new ItemList(itemCode, itemName, itemPrice, itemQuantity);
         Userdao userdao;
 		try {
 			userdao = new Userdao(ConnectionProvider.getConnection());
 			 if (userdao.saveUser(list)) {
-		    		out.println("successfully write");
+				 
+				out.println("<h1 style='text-align: center;'>successfully write</h1>");		    		
+		    	out.println("<br>");
+		        out.println("<a style='text-align: center; display: block; margin: auto;' href='front.html'>Home</a>");
 				}else {
 					out.println("not writed");
 				}

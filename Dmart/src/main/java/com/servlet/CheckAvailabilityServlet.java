@@ -21,6 +21,21 @@ public class CheckAvailabilityServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Background Image Servlet</title>");
+        out.println("<style>");
+        out.println("body {");
+        out.println("    background-image: url('img/Dmart.jpg');");
+        out.println("    background-size: cover;");
+        out.println("    background-repeat: no-repeat;");
+        out.println("}");
+        out.println("</style>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("</body>");
+        out.println("</html>");
 
         PreparedStatement statement = null;
         ResultSet resultSet = null;
