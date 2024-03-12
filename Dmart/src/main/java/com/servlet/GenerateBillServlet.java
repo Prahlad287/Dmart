@@ -170,6 +170,7 @@ public class GenerateBillServlet extends HttpServlet {
 		            table.addCell("Total Price");
 
 		            double totalPrice = 0; // Variable to calculate the total price
+		            
 		           
 		            for (Map.Entry<Integer, ArrayList<Object>> entry2 : hashMap.entrySet()) {
 		                ArrayList<Object> values2 = entry2.getValue();
@@ -179,27 +180,28 @@ public class GenerateBillServlet extends HttpServlet {
 		                }
 		                // Add the total price for the current item to the total price
 		                totalPrice += Double.parseDouble(values2.get(4).toString());
+		                
 		            }
 		            
 		            
-		            
+		            double totalgst=((totalPrice*5)/100);
 		            table.addCell("SGST");
 		            table.addCell(""); // Empty cell for Item Name column
 		            table.addCell(""); // Empty cell for Item Price column
 		            table.addCell(""); // Empty cell for Item Quantity column
-		            table.addCell(String.valueOf(totalPrice%5));
+		            table.addCell(String.valueOf(totalgst));
 		            
 		            table.addCell("CGST");
 		            table.addCell(""); // Empty cell for Item Name column
 		            table.addCell(""); // Empty cell for Item Price column
 		            table.addCell(""); // Empty cell for Item Quantity column
-		            table.addCell(String.valueOf(totalPrice%5));
+		            table.addCell(String.valueOf(totalgst));
 		            // Add a row for the total price
 		            table.addCell("Total");
 		            table.addCell(""); // Empty cell for Item Name column
 		            table.addCell(""); // Empty cell for Item Price column
 		            table.addCell(""); // Empty cell for Item Quantity column
-		            table.addCell(String.valueOf(totalPrice)); // Total Price cell
+		            table.addCell(String.valueOf(totalPrice+(totalgst*2))); // Total Price cell
 		            
 		            table.setSpacingBefore(10f); // You
 		            document.add(table); // Add the table to the PDF document
